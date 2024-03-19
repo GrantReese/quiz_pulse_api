@@ -7,5 +7,14 @@ class Quiz < ApplicationRecord
         less_than_or_equal_to: 100,  only_integer: true }
 
     validates :created_by, presence: true
+    
+    
+    #associations
+    has_many :users
+    has_many :questions
+    has_many :do_quiz
+    has_one :category
+
+
 
 end

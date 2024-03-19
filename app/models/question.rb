@@ -10,4 +10,6 @@ class Question < ApplicationRecord
   
   #associations
   belongs_to :quiz
+  has_many :do_quiz_answers
+  has_many :question_option
 end
