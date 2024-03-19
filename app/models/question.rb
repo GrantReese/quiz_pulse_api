@@ -8,6 +8,6 @@ class Question < ApplicationRecord
   
   
   
-  
+  #associations
   belongs_to :quiz
 end

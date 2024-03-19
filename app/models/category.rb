@@ -4,6 +4,7 @@ class Category < ApplicationRecord
   
   
   
+  #Associations
   
   belongs_to :quiz
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_18_223718) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_18_233608) do
   create_table "categories", force: :cascade do |t|
     t.integer "quiz_id", null: false
     t.string "category"
@@ -18,6 +18,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_18_223718) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["quiz_id"], name: "index_categories_on_quiz_id"
+  end
+
+  create_table "do_quiz_answers", force: :cascade do |t|
+    t.integer "do_quiz_id", null: false
+    t.integer "question_id", null: false
+    t.string "answer_value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["do_quiz_id"], name: "index_do_quiz_answers_on_do_quiz_id"
+    t.index ["question_id"], name: "index_do_quiz_answers_on_question_id"
   end
 
   create_table "do_quizzes", force: :cascade do |t|
@@ -74,6 +84,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_18_223718) do
   end
 
   add_foreign_key "categories", "quizzes"
+  add_foreign_key "do_quiz_answers", "do_quizzes"
+  add_foreign_key "do_quiz_answers", "questions"
   add_foreign_key "do_quizzes", "quizzes"
   add_foreign_key "do_quizzes", "users"
   add_foreign_key "question_options", "questions"

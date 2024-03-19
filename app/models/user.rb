@@ -15,4 +15,8 @@ class User < ApplicationRecord
             errors.add(:username, "can only contain letters, numbers, and underscores, and must include at least one letter or number")
         end
     end
+   
+    #associations
+   has_many :do_quizzes
+   has_many :quizzes, through: :do_quiz
 end
