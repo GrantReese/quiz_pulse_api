@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_18_233608) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_20_180543) do
   create_table "categories", force: :cascade do |t|
     t.integer "quiz_id", null: false
     t.string "category"
@@ -81,6 +81,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_18_233608) do
     t.string "last_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "admin"
   end
 
   add_foreign_key "categories", "quizzes"
