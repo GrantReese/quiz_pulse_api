@@ -13,7 +13,8 @@ class Quiz < ApplicationRecord
     has_many :users
     has_many :questions
     has_many :do_quiz
-    has_one :category
+    # has_one :category
+    # Having issues when I have the relationships between category and quiz
 
 
 
