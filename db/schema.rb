@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_22_201837) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_22_212916) do
   create_table "categories", force: :cascade do |t|
     t.integer "quiz_id", null: false
     t.string "category"
@@ -33,8 +33,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_22_201837) do
   create_table "do_quizzes", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "quiz_id", null: false
-    t.string "completed_status"
-    t.string "boolean"
+    t.boolean "completed_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["quiz_id"], name: "index_do_quizzes_on_quiz_id"
