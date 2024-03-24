@@ -1,6 +1,22 @@
 class UsersController < ApplicationController
-before_action :set_user, only: [:destroy, :update] 
-  def create
+
+# needs action to show all quizes createds by a user
+
+
+before_action :set_user, only: [:destroy, :update, :show] 
+def index
+  users = User.all
+  
+  render json: users, status: 200
+end  
+
+def show
+  
+    
+  render json: @user, status: 200
+end
+
+def create
     user = User.new(user_params)
 
     if user.save
