@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
 
 before_action :set_user, only: [:destroy, :update, :show] 
+
 def index
   users = User.all
   
@@ -35,6 +36,8 @@ def create
       render json: @user.errors, status: :unprocessable_entity
     end
   end  
+  
+
   def destroy
    if @user.destroy
     render json: nil, status: :ok
