@@ -39,11 +39,11 @@ def create
   
 
   def destroy
-   if @user.destroy
+  if @user.destroy
     render json: nil, status: :ok
-   else
-     render json: @user.errors, status: :unprocessable_entity
-   end
+  else
+    render json: @user.errors, status: :unprocessable_entity
+ end
 
   end
   private
