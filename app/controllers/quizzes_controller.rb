@@ -1,6 +1,6 @@
 class QuizzesController < ApplicationController
     before_action :set_quiz, only: [:show, :destroy]
-    before_action :authenticate_request, except: [:index]
+    before_action :authenticate_request, except: [:index,]
 
     def index
         quizzes = Quiz.all

@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
     before_action :set_question, only: [:show, :destroy]
-    before_action :authenticate_request, except: [:index]
+    before_action :authenticate_request, except: [:index, :show, :create]
 
     def index
         questions = Question.all
@@ -14,7 +14,7 @@ class QuestionsController < ApplicationController
     end
 
     def create 
-        question = @current_user.questions.new(question_params) #codeim suggests question .build
+        question = Question.create(question_params) #codeim suggests question .build
         if question.save
             render json: question, status: :created
         else
@@ -40,7 +40,7 @@ class QuestionsController < ApplicationController
     end
 
     def question_params
-    params.permit(:score, :question_type, :prompt, :answer)
+    params.permit(:score, :question_type, :prompt, :answer, :quiz_id)
     end
 end
 
