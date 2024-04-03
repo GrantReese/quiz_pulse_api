@@ -1,6 +1,6 @@
 class QuizzesController < ApplicationController
     before_action :set_quiz, only: [:show, :destroy]
-    # before_action :authenticate_request, except: [:index]
+    before_action :authenticate_request, except: [:index]
 
     def index
         quizzes = Quiz.all
@@ -14,7 +14,7 @@ class QuizzesController < ApplicationController
     end
 
     def create 
-        quiz = Quiz.new(quiz_params)
+        quiz = @current_user.quizzes.new(quiz_params) #codeim suggests quiz .build
         if quiz.save
             render json: quiz, status: :created
         else
@@ -22,6 +22,7 @@ class QuizzesController < ApplicationController
         end
         
     end
+   
 
     def destroy
         if @quiz.destroy
