@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
     before_action :set_question, only: [:show, :destroy]
-    before_action :authenticate_request, except: [:index, :show, :create]
+    before_action :authenticate_request, except: [:index, :show, :create, :destroy]
 
     def index
         questions = Question.all
