@@ -1,5 +1,5 @@
 class DoQuiz < ApplicationRecord
-  
+  validates :completed_status, inclusion: { in: [true, false] }
   
   #associations
   belongs_to :user
