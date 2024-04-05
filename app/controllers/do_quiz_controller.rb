@@ -35,7 +35,7 @@ class DoQuizController < ApplicationController
   private 
 
   def set_do_quiz
-    do_quiz = DoQuiz.find(params[:id])
+    @do_quiz = DoQuiz.find(params[:id])
   end
 
   def do_quiz_params
