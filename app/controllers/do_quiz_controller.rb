@@ -1,6 +1,7 @@
 class DoQuizController < ApplicationController
-  before_action :set_do_quiz, only: %i[ show update destroy ]
-  
+  before_action :set_do_quiz, only: [ :show, :update, :destroy ]
+  before_action :authenticate_request, except: [:index]
+
   def index
     do_quizzes = DoQuiz.all
     render json: do_quizzes, status: 200
