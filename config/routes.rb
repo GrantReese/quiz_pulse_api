@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :users
   resources :quizzes
   resources :questions
+  resources :do_quiz
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
