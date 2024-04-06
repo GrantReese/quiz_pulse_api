@@ -14,7 +14,7 @@ class QuizzesController < ApplicationController
     end
 
     def create 
-        quiz = @current_user.quizzes.create(quiz_params) #codeim suggests quiz .build
+        quiz = @current_user.quizzes.create(quiz_params) 
         if quiz.save
             render json: quiz, status: :created
         else

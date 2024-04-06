@@ -1,4 +1,4 @@
-class DoQuizAnswer < ApplicationRecord
+class DoQuizAnswers < ApplicationRecord
   validates :answer_value, presence: true
   
   #associations
