@@ -1,6 +1,6 @@
 class DoQuizController < ApplicationController
   before_action :set_do_quiz, only: [ :show, :destroy ]
-  before_action :authenticate_request, except: [:index, :show, :create, :destroy]
+  before_action :authenticate_request, except: [:index, :show, :destroy]
 
   def index
     do_quizzes = DoQuiz.all
