@@ -13,7 +13,7 @@ class QuizzesController < ApplicationController
 
     end
 
-    def create 
+    # def create 
         # quiz = @current_user.do_quiz.create(quiz_params) 
         # if quiz.save
         #     render json: quiz, status: :created
@@ -28,24 +28,25 @@ class QuizzesController < ApplicationController
         # else
         #     render json: @quiz.errors, status: :unprocessable_entity
         # end
-        def create
+    def create
             # Find the user for whom you're creating the quiz
-            user = User.find(params[:user_id])
+            # user = User.find(params[:user_id])
         
             # Create the quiz
             quiz = Quiz.new(quiz_params)
         
             if quiz.save
               # Associate the quiz with the user through DoQuiz
-              user.quizzes << quiz
+            #   user.quizzes << quiz
               
               render json: quiz, status: :created
             else
               render json: quiz.errors, status: :unprocessable_entity
             end
-          end
     end
-   
+
+        
+        
 
     def destroy
         if @quiz.destroy
@@ -63,12 +64,7 @@ class QuizzesController < ApplicationController
     end
 
     def quiz_params
-    params.permit(:title, :category, :description, :total_score_possible, :created_by)
+    params.require(:quiz).permit(:title, :category, :description, :total_score_possible, :created_by)
     end
 end
-
-
-
-
-
 
