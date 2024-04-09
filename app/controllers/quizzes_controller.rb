@@ -65,6 +65,7 @@ class QuizzesController < ApplicationController
 
     def quiz_params
     params.require(:quiz).permit(:title, :category, :description, :total_score_possible, :created_by)
+    #remove :created_by
     end
 end
 

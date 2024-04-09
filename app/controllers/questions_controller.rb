@@ -1,3 +1,5 @@
+# laptop needs masterkey for auth to go in config folder
+
 class QuestionsController < ApplicationController
     before_action :set_question, only: [:show, :destroy]
     before_action :authenticate_request, except: [:index, :show]
@@ -14,7 +16,7 @@ class QuestionsController < ApplicationController
     end
 
     def create 
-        question = Question.create(question_params) #codeim suggests question .build
+        question = Question.create(question_params) 
         if question.save
             render json: question, status: :created
         else

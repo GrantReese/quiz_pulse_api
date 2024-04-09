@@ -53,7 +53,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_22_212916) do
     t.integer "score"
     t.string "question_type"
     t.string "prompt"
-    t.string "answer"
+    t.string "answer" # question Id sttring points to question id, switch to number
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["quiz_id"], name: "index_questions_on_quiz_id"
@@ -63,7 +63,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_22_212916) do
     t.string "title"
     t.string "category"
     t.string "description"
-    t.date "created_date"
+    t.date "created_date" #created date remove
     t.integer "total_score_possible"
     t.string "created_by"
     t.datetime "created_at", null: false

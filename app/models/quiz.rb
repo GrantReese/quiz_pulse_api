@@ -17,5 +17,5 @@ class Quiz < ApplicationRecord
     # Having issues when I have the relationships between category and quiz
 
 
-
+            #use digram sent german 
 end
