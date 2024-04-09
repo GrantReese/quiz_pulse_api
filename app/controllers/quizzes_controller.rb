@@ -14,7 +14,7 @@ class QuizzesController < ApplicationController
     end
 
     # def create 
-        # quiz = @current_user.do_quiz.create(quiz_params) 
+        # quiz = @current_user.quiz.create(quiz_params) 
         # if quiz.save
         #     render json: quiz, status: :created
         # else
@@ -29,15 +29,18 @@ class QuizzesController < ApplicationController
         #     render json: @quiz.errors, status: :unprocessable_entity
         # end
     def create
-            # Find the user for whom you're creating the quiz
+            
             # user = User.find(params[:user_id])
         
-            # Create the quiz
-            quiz = Quiz.new(quiz_params)
+            quiz = @current_user.quizzes.create(quiz_params)
+            #getting error that there is method for quiz for logged in user?
+            # getting error with needing assoc with doquiz, changed user model
+            
+            # quiz = Quiz.new(quiz_params)
         
             if quiz.save
               # Associate the quiz with the user through DoQuiz
-            #   user.quizzes << quiz
+              user.quizzes << quiz
               
               render json: quiz, status: :created
             else

@@ -19,6 +19,7 @@ class User < ApplicationRecord
     end
    
     #associations
-   has_many :do_quizzes
-   has_many :quizzes, through: :do_quiz
+#    has_many :do_quizzes
+#    has_many :quizzes, through: :do_quiz
+    has_many :quizzes
 end
