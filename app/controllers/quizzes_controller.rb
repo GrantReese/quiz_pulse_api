@@ -34,13 +34,13 @@ class QuizzesController < ApplicationController
         
             quiz = @current_user.quizzes.create(quiz_params)
             #getting error that there is method for quiz for logged in user?
-            # getting error with needing assoc with doquiz, changed user model
+            # getting error with needing assoc with doquiz, changed user model, unkown attribute userid showing from postman
             
             # quiz = Quiz.new(quiz_params)
         
             if quiz.save
               # Associate the quiz with the user through DoQuiz
-              user.quizzes << quiz
+            #   user.quizzes << quiz
               
               render json: quiz, status: :created
             else
