@@ -13,21 +13,7 @@ class QuizzesController < ApplicationController
 
     end
 
-    # def create 
-        # quiz = @current_user.quiz.create(quiz_params) 
-        # if quiz.save
-        #     render json: quiz, status: :created
-        # else
-        #     render json: quiz.errors, status: :unprocessable_entity
-        # end
-        # @user = current_user
-        # @quiz = Quiz.create(quiz_params)
-        # if @quiz.save
-        #     @user.do_quiz.create(quiz: @quiz)
-        #     render json: @quiz, status: :created
-        # else
-        #     render json: @quiz.errors, status: :unprocessable_entity
-        # end
+    
     def create
             
             # user = User.find(params[:user_id])
@@ -67,8 +53,8 @@ class QuizzesController < ApplicationController
     end
 
     def quiz_params
-    params.require(:quiz).permit(:title, :category, :description, :total_score_possible, :created_by)
-    #remove :created_by
+    params.require(:quiz).permit(:title, :category, :description, :total_score_possible)
+    
     end
 end
 

@@ -11,6 +11,11 @@ class User < ApplicationRecord
     validates :first_name, presence: true
     validates :last_name, presence: true
 
+        #associations
+        #    has_many :do_quizzes
+        #has_many :quizzes, through: :do_quiz
+    has_many :quizzes
+   
     private
     def validate_username
         unless username =~ /\A[a-zA-Z0-9_]+\Z/
@@ -18,8 +23,5 @@ class User < ApplicationRecord
         end
     end
    
-    #associations
-#    has_many :do_quizzes
-#    has_many :quizzes, through: :do_quiz
-    has_many :quizzes
+
 end
