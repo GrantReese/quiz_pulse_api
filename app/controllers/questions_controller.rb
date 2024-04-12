@@ -20,7 +20,7 @@ class QuestionsController < ApplicationController
         if question.save
             render json: question, status: :created
         else
-            render json: question.errors, status: :unprocessable_entity
+            # render json: question.errors, status: :unprocessable_entity
         end
         
     end
@@ -41,9 +41,14 @@ class QuestionsController < ApplicationController
 
     end
 
+    # def question_params
+    # params.permit(:score, :question_type, :prompt, :answer, :quiz_id)
+    # end
     def question_params
-    params.permit(:score, :question_type, :prompt, :answer, :quiz_id)
-    end
+        params.require(:question).permit(:score, :question_type, :prompt, :answer, :quiz_id)
+      end
+      
+
 end
 
 
