@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_10_223428) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_18_184543) do
   create_table "categories", force: :cascade do |t|
     t.integer "quiz_id", null: false
     t.string "category"
@@ -33,9 +33,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_10_223428) do
   create_table "do_quizzes", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "quiz_id", null: false
-    t.boolean "completed_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "completed_status", default: false
     t.index ["quiz_id"], name: "index_do_quizzes_on_quiz_id"
     t.index ["user_id"], name: "index_do_quizzes_on_user_id"
   end
